@@ -8,21 +8,20 @@
 *
 */
 
-var 
-	 gumerPSN 	= require('./psn')		// Gumer Playstation module
-	,express 	= require('express')	// Express
-	,app 		= express()				// Express application instance
-	,idregex 	= /[A-Za-z0-9].{2,15}/ 	// A simple regex for PSN id's // TODO: Make it more accurate and fancy
-;
+var gumerPSN 	= require('./psn');
+var express 	= require('express');
+var app 		= express();
+var idregex 	= /[A-Za-z0-9].{2,15}/; 	// A simple regex for PSN id's // TODO: Make it more accurate and fancy
+
 
 console.log('Starting gPSN');
 
 gumerPSN.init({		// Our PSN Module, we have to start it once. - irkinsander
-	debug:		true				// Let's set it true, it's still in early development. So, report everything that goes wrong please.
-	,email:		"{{username}}"		// A valid PSN/SCE account (can be new one) // TODO: Using the user's credentials to do this.
-	,password:	"{{password}}"		// Account's password, du'h
-	,npLanguage:	"en"			// The language the trophy's name and description will shown as
-	,region: 		"us"			// The server region that will push data
+	debug:		true,			// Let's set it true, it's still in early development. So, report everything that goes wrong please.
+	email:		"{{username}}",		// A valid PSN/SCE account (can be new one) // TODO: Using the user's credentials to do this.
+	password:	"{{password}}",		// Account's password, du'h
+	npLanguage:	"en",			// The language the trophy's name and description will shown as
+	region: 		"us",			// The server region that will push data
 });
 
 // Taken from Express site, this takes /{{id}}/ parameter
